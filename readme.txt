@@ -26,7 +26,7 @@ e.g.
 
 == Frequently Asked Questions ==
 
-= A cotação é paga onde? =
+= A cotação é pega onde? =
 
 Diretamente do site do banco central através de um webservice.
 
