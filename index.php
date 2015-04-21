@@ -1,9 +1,9 @@
 <?php
 /*
 Plugin Name: Cotação Euro
-Plugin URI: http://www.cotraoeurohoje.com
+Plugin URI: http://www.cotacaoeurohoje.com
 Description: Tenha a cotação do euro em seu site - atualizado diariamente direto do site do Banco Central.
-Version: 1.2
+Version: 1.3
 Author: Fernando Becker
 Author URI: http://www.fernandobecker.com.br
 License: GPLv2
