@@ -20,9 +20,9 @@ This section describes how to install the plugin and get it working.
 
 e.g.
 
-1. Upload `cotacaoeuro.php` to the `/wp-content/plugins/` directory
-1. Activate the plugin through the 'Plugins' menu in WordPress
-1. Go to widget and ative your widget in sidebar
+1. Suba os aa pasta /cotacao-euro-hoje para o diretório `/wp-content/plugins/`
+2. Ative o plugin em seu painel do Wordpress
+3. Inclua o plugin diretamente em sua sidebar ou onde preferir
 
 == Frequently Asked Questions ==
 
@@ -33,6 +33,9 @@ Diretamente do site do banco central através de um webservice.
 == Screenshots ==
 
 == Changelog ==
+
+- Correção de textos: Readme.txt 
+- Correção de codificação BOM
 
 == Arbitrary section ==
 

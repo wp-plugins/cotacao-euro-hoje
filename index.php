@@ -1,9 +1,9 @@
-﻿<?php
+<?php
 /*
 Plugin Name: Cotação Euro
 Plugin URI: http://www.cotraoeurohoje.com
 Description: Tenha a cotação do euro em seu site - atualizado diariamente direto do site do Banco Central.
-Version: 1.1
+Version: 1.2
 Author: Fernando Becker
 Author URI: http://www.fernandobecker.com.br
 License: GPLv2
@@ -25,16 +25,6 @@ License: GPLv2
 *      Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
 *      MA 02110-1301, USA.
 */
-
-/**
- * Cotação do Euro
- *
- * @author Fernando Becker <febeckers@gmail.com>
- * @link http://www.fernandobecker.com.br
- */
-
-@date_default_timezone_set('America/Sao_Paulo');
- 
 class cotaocaEuro extends WP_Widget{
 
 	public $valor, $autor, $site;
@@ -55,10 +45,10 @@ class cotaocaEuro extends WP_Widget{
 		
 			?>
             <div id="cotacaoeuro">
-				<h2>Cotação do euro</h2>
-				<strong>€1,00 = R$<?php echo $this->valor?></strong>
+				<h2>Cota&ccedil;&atilde;o do euro</h2>
+				<strong>&euro;1,00 = R$<?php echo $this->valor?></strong>
 				<div>
-                	Valor para <?php echo date('d/m/Y')?> às <?php echo date('H:00')?> pego em 
+                	Valor para <?php echo date('d/m/Y')?> &agrave;s <?php echo date('H:00')?> pego em 
                     <br/><a href="<?php echo $this->site?>"><?php echo $this->autor?></a>
                 </div>
 			</div>
