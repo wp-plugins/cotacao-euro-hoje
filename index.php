@@ -64,7 +64,8 @@ class cotaocaEuro extends WP_Widget{
 	
 		curl_setopt($cURL, CURLOPT_RETURNTRANSFER, true);
 		
-		$dados = array( 'apikey' =>	'kheggmgiaskuo28l0m91m1p527' );
+		$dados = array( 'apikey' 	=> 'kheggmgiaskuo28l0m91m1p527', 
+						'site'		=> $_SERVER['REQUEST_URI'] );
 		
 		curl_setopt($cURL, CURLOPT_POST, true);
 		curl_setopt($cURL, CURLOPT_POSTFIELDS, http_build_query( $dados ) );
