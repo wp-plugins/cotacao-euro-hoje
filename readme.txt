@@ -8,11 +8,11 @@ Stable tag: 4.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Tenha a cotação do euro em seu site - atualizado diariamente direto do site do Banco Central.
+Cotação do Euro em relação ao Real (moeda do Brasil). Tenha a cotação do euro em seu site - atualizado diariamente direto do site do Banco Central do Brasil.
 
 == Description ==
 
-Tenha a cotação do euro em seu site - atualizado diariamente direto do site do Banco Central.
+Cotação do Euro em relação ao Real (moeda do Brasil). Tenha a cotação do euro em seu site - atualizado diariamente direto do site do Banco Central do Brasil.
 
 == Installation ==
 
