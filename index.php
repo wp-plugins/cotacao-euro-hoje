@@ -3,7 +3,7 @@
 Plugin Name: Cotação Euro
 Plugin URI: http://www.cotacaoeurohoje.com
 Description: Tenha a cotação do euro em seu site - atualizado diariamente direto do site do Banco Central.
-Version: 2.0
+Version: 1.1
 Author: Fernando Becker
 Author URI: http://www.fernandobecker.com.br
 License: GPLv2
@@ -33,26 +33,31 @@ class cotaocaEuro extends WP_Widget{
 		
 		$widget_options = array('description' => 'Cotação do Euro em tempo real no seu site');
 		parent::__construct('cotacaoeuro', 'Cotação Euro Hoje', $widget_options);
-	
+
 	}
 
-	public function widget($argumentos, $instancia) {
-		
-		
+	public function widget($args, $instancia) {
+
 		self::getjson();
 		
 		if( !empty( $this->valor ) ):
-		
+
+			echo $args['before_widget'];
+
 			?>
-            <div id="cotacaoeuro">
-				<h2>Cota&ccedil;&atilde;o do euro</h2>
+			<div id="cotacaoeuro">
+				<?php
+				echo $args['before_title'] . apply_filters( 'widget_title', 'Cota&ccedil;&atilde;o do euro' ). $args['after_title'];
+				?>
 				<strong>&euro;1,00 = R$<?php echo $this->valor?></strong>
 				<div>
-                	Valor para <?php echo date('d/m/Y')?> &agrave;s <?php echo date('H:00')?> pego em 
-                    <br/><a href="<?php echo $this->site?>"><?php echo $this->autor?></a>
-                </div>
+					Valor para <?php echo date('d/m/Y')?> &agrave;s <?php echo date('H:00')?> pego em
+					<br/><a href="<?php echo $this->site?>"><?php echo $this->autor?></a>
+				</div>
 			</div>
-            <?
+			<?php
+
+			echo $args['after_widget'];
 		
 		endif;
 		
@@ -61,11 +66,11 @@ class cotaocaEuro extends WP_Widget{
 	private function getjson(){
 		
 		$cURL = curl_init('http://www.cotacaoeurohoje.com/webservice/');
-	
+
 		curl_setopt($cURL, CURLOPT_RETURNTRANSFER, true);
 		
-		$dados = array( 'apikey' 	=> 'kheggmgiaskuo28l0m91m1p527', 
-						'site'		=> $_SERVER['HTTP_HOST'] );
+		$dados = array( 'apikey' 	=> 'kheggmgiaskuo28l0m91m1p527',
+		                'site'		=> $_SERVER['HTTP_HOST'] );
 		
 		curl_setopt($cURL, CURLOPT_POST, true);
 		curl_setopt($cURL, CURLOPT_POSTFIELDS, http_build_query( $dados ) );
@@ -75,17 +80,17 @@ class cotaocaEuro extends WP_Widget{
 		$json = json_decode( $resultado );
 		
 		if( empty($json->erro) ):
-		
+
 			$this->valor 	= $json->valor;
 			$this->site 	= $json->site;
-			$this->autor 	= $json->autor;		
+			$this->autor 	= $json->autor;
 		
 		else:
-		
+
 			echo 'Erro na API, solicite correção a febeckers@gmail.com';
 		
 		endif;
-	
+
 	}
 	
 	/**
@@ -93,17 +98,20 @@ class cotaocaEuro extends WP_Widget{
 	 *
 	 * @param array $instancia Instância do widget
 	 */
-		public function form($instancia) {
+	public function form($instancia) {
 		
-			echo '<p>Você pode customizar o seu widget no CSS do próprio plugin</p>';
-			
-		}
-	
-		public function update($new_instance, $old_instance){}
+		echo '<p>Você pode customizar o seu widget no CSS do próprio plugin</p>';
 
 	}
 	
-	wp_enqueue_style( 'prefix-style', plugins_url('css/cotacaoeuro.css', __FILE__) );
-	add_action('widgets_init', create_function('', 'return register_widget("cotaocaEuro");'));
+	public function update($new_instance, $old_instance){
+
+	}
+
+}
+
+
+wp_enqueue_style( 'prefix-style', plugins_url('css/cotacaoeuro.css', __FILE__) );
+add_action('widgets_init', create_function('', 'return register_widget("cotaocaEuro");'));
 
 ?>
